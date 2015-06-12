@@ -12,7 +12,7 @@ namespace HutongGames.PlayMakerEditor
     {
         private const string urlReleaseNotes = "https://hutonggames.fogbugz.com/default.asp?W311";
 
-        private bool showOnLoad;
+        private static bool showOnLoad;
         private Vector2 scrollPosition;
 
         static PlayMakerUpgradeGuide()
@@ -34,15 +34,9 @@ namespace HutongGames.PlayMakerEditor
 
         public static void Open()
         {
-            GetWindow<PlayMakerUpgradeGuide>(true);
-        }
-
-        public void OnEnable()
-        {
-            title = "PlayMaker";
-            position = new Rect(100,100,350,400);
-            minSize = new Vector2(350,200);
-
+            var window = GetWindow<PlayMakerUpgradeGuide>(true);
+            window.title = "PlayMaker"; 
+            window.minSize = new Vector2(350, 400);
             showOnLoad = EditorPrefs.GetBool("Playmaker.ShowUpgradeGuide", true);
         }
 
@@ -60,19 +54,18 @@ namespace HutongGames.PlayMakerEditor
             EditorGUILayout.HelpBox("Always BACKUP projects before updating!", MessageType.Error);
 
             GUILayout.Label("Version 1.7.8", EditorStyles.boldLabel);
-            EditorGUILayout.HelpBox("This is a maintainance release for Unity 5 compatibility. " + 
-                                    "\nFor full Unity 5 compatibility please update PlayMaker in the Unity 5 Asset Store and re-import. " +
-                                    "", MessageType.Info);
-            EditorGUILayout.HelpBox("The Playmaker About Window still says 1.7.7 since the dlls were not recompiled for this version.", MessageType.Info);
- 
+            EditorGUILayout.HelpBox("This is a maintainance release for Unity 5 compatibility. " +
+                                    "\nNew features and bug fixes coming soon in 1.8.0", MessageType.Info);
+
             GUILayout.Label("Unity 5 Upgrade Notes", EditorStyles.boldLabel);
+            EditorGUILayout.HelpBox("If you're updating a Unity 4.x project please check the Troubleshooting guide on the PlayMaker Wiki.", MessageType.Warning);
             EditorGUILayout.HelpBox("Unity 5 removed component property shortcuts from GameObject. " +
                                     "\n\nThe Unity auto update process replaces these properties with GetComponent calls. " +
                                     "In many cases this is fine, but some third party actions and addons might need manual updating! " +
                                     "Please post on the PlayMaker forums and contact the original authors for help." +
                                     "\n\nIf you used these GameObject properties in Get Property or Set Property actions " +
-                                    "they will be gone, and you need to reset them to point to the component directly. " +
-                                    "E.g., Drag the component into the property field instead of the GameObject." +
+                                    "they are no longer valid, and you need to instead point to the Component directly. " +
+                                    "E.g., Drag the Component (NOT the GameObject) into the Target Object field." +
                                     "\n", MessageType.Warning);
 
             GUILayout.Label("Unity 4.6 Upgrade Notes", EditorStyles.boldLabel);
