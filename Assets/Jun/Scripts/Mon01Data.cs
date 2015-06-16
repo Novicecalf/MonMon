@@ -9,4 +9,5 @@ public class Mon01Data : MonoBehaviour
 	public float DEF;
 	public float HP;
 	public float MP;
+	public float DOD;
 }
