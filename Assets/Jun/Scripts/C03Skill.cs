@@ -3,9 +3,9 @@ using System.Collections;
 
 public class C03Skill : MonoBehaviour
 {
-	public float SK01HP;
-	public float SK01HPT;
-	public float SK01HPC;
+	public float SK03HP;
+	public float SK03HPT;
+	public float SK03HPC;
 		
 	public float SK01DEF;
 	public float SK01DEFT;

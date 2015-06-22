@@ -7,11 +7,11 @@ public class C02Skill : MonoBehaviour
 	public float SK01HPT;
 	public float SK01HPC;
 		
-	public float SK01DEF;
-	public float SK01DEFT;
-	public float SK01DEFC;
+	public float SK02HPS;
+	public float SK02HPST;
+	public float SK02HPSC;
 	
-	public float SK01DOD;
-	public float SK01DODT;
-	public float SK01DODC;
+	public float SK03DEFS;
+	public float SK03DEFST;
+	public float SK03DEFSC;
 }
